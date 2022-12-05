@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Team;
+use App\Entity\Product;
 use App\Controller\Admin\TeamCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -46,6 +47,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Team', 'fas fa-list', Team::class);
+        yield MenuItem::linkToCrud('Product', 'fas fa-list', Product::class);
     }
 }
