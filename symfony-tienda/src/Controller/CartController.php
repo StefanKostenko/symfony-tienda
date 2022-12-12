@@ -42,7 +42,7 @@ class CartController extends AbstractController
             $items[] = $item;
         }
     
-        return $this->render('cart/index.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
+        return $this->render('page/cart.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
     }
     #[Route('/add/{id}', name: 'cart_add', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
     public function cart_add(int $id): Response
@@ -63,4 +63,6 @@ class CartController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK);
         
     }
+
+
 }
