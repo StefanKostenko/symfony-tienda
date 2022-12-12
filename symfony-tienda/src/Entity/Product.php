@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\RequestStack;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -21,6 +22,11 @@ class Product
 
     #[ORM\Column]
     private ?float $price = null;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }    
 
     public function getId(): ?int
     {
