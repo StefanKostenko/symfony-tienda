@@ -22,6 +22,12 @@
                     <a href="{{ path('detail') }}" class="dropdown-item">Blog Detail</a>
                 </div>
             </div>
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'app_logout')  ? 'active': ''}}"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Logout</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'app_login')  ? 'active': ''}}"><i class="fa fa-sign-in sr-icons"></i> Login</a>
+                <a href="{{ path('app_register') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'app_register')  ? 'active': ''}} "><i class="fa fa-user-secret sr-icons"></i> Register</a>
+            {% endif %}
             <a href="{{ path('contact') }}" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Contact <i class="bi bi-arrow-right"></i></a>
         </div>
     </div>
